@@ -54,9 +54,8 @@ int main(void)
     // Infinite loop
     while (1)
     {
-         PORTB = PORTB & ~(1<<LED_GREEN);
         
-         PORTB = PORTB ^ (1<<LED_GREEN); 
+         PORTB = PORTB ^ (1<<LED_GREEN);
          _delay_ms(LONG_DELAY);
          PORTB = PORTB & ~(1<<LED_GREEN);
          
