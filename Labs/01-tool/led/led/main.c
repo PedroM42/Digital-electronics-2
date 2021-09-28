@@ -21,7 +21,9 @@
  */
 #define LED_GREEN   PB5 // AVR pin where green LED is connected
 #define SHORT_DELAY 250 // Delay in milliseconds
-#define LONG_DELAY 750
+#define LONG_DELAY 750 // Delay in milliseconds
+#define START_DELAY 1000 // Delay in milliseconds
+#define BREAK_DELAY 300 // Delay in milliseconds
 #ifndef F_CPU           // Preprocessor directive allows for conditional
                         // compilation. The #ifndef means "if not defined".
 # define F_CPU 16000000 // CPU frequency in Hz required for delay
@@ -49,55 +51,25 @@ int main(void)
     // Set pin LOW in Data Register (LED off)
     // PORTB = PORTB and 1101 1111
     PORTB = PORTB & ~(1<<LED_GREEN);
-    
 
     // Infinite loop
     while (1)
     {
-        
-         PORTB = PORTB ^ (1<<LED_GREEN);
-         _delay_ms(LONG_DELAY);
-         PORTB = PORTB & ~(1<<LED_GREEN);
-         
-         PORTB = PORTB ^ (1<<LED_GREEN);
-         _delay_ms(SHORT_DELAY);
-         PORTB = PORTB & ~(1<<LED_GREEN);
-         
-          PORTB = PORTB ^ (1<<LED_GREEN);
-          _delay_ms(SHORT_DELAY);
-          PORTB = PORTB & ~(1<<LED_GREEN);
-          
-           PORTB = PORTB ^ (1<<LED_GREEN);
-           _delay_ms(SHORT_DELAY);
-           PORTB = PORTB & ~(1<<LED_GREEN);
-          
-         PORTB = PORTB ^ (1<<LED_GREEN);
-         _delay_ms(SHORT_DELAY);
-         PORTB = PORTB & ~(1<<LED_GREEN);
-         
-         PORTB = PORTB ^ (1<<LED_GREEN);
-         _delay_ms(SHORT_DELAY);
-         PORTB = PORTB & ~(1<<LED_GREEN);
-         
-         PORTB = PORTB ^ (1<<LED_GREEN);
-         _delay_ms(SHORT_DELAY);
-         PORTB = PORTB & ~(1<<LED_GREEN);
-         
-         PORTB = PORTB ^ (1<<LED_GREEN);
-         _delay_ms(LONG_DELAY);
-         PORTB = PORTB & ~(1<<LED_GREEN);
-         
-         PORTB = PORTB ^ (1<<LED_GREEN);
-         _delay_ms(LONG_DELAY);
-         PORTB = PORTB & ~(1<<LED_GREEN);
-         
-         PORTB = PORTB ^ (1<<LED_GREEN);
-         _delay_ms(LONG_DELAY);
-         PORTB = PORTB & ~(1<<LED_GREEN);
-         
-         
-         
-                 
+       // Letter A
+        _delay_ms( START_DELAY);
+		
+        PORTB = PORTB ^ (1<<LED_GREEN);
+		_delay_ms( SHORT_DELAY);            //DOT
+	    PORTB = PORTB & ~(1<<LED_GREEN);
+		
+		_delay_ms(BREAK_DELAY);
+		
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		_delay_ms(LONG_DELAY);              //DASH
+		PORTB = PORTB & ~(1<<LED_GREEN);
+		
+		
+		
     }
 
     // Will never reach this
