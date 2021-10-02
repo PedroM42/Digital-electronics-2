@@ -32,43 +32,38 @@
  **********************************************************************/
 int main(void)
 {
-    // Green LED at port B
-    // Set pin as output in Data Direction Register...
-    DDRB = DDRB | (1<<LED_GREEN);
-    // ...and turn LED off in Data Register
-    PORTB = PORTB & ~(1<<LED_GREEN);
+	// Green LED at port B
+	// Set pin as output in Data Direction Register...
+	DDRB = DDRB | (1<<LED_GREEN);
+	// ...and turn LED off in Data Register
+	PORTB = PORTB & ~(1<<LED_GREEN);
 
-    // Configure the second LED at port C
-    DDRC = DDRC | (1<<LED_GREEN2);
-    PORTC = PORTC & ~(1<<LED_GREEN2);
-    
-    // Configure Push button at port D and enable internal pull-up resistor
-    DDRD = DDRD & ~(1<<BUTTON)
-    PORTD = PORTD | (1<<BUTTON)
+	// Configure the second LED at port C
+	DDRC = DDRC | (1<<LED_GREEN2);
+	PORTC = PORTC & ~(1<<LED_GREEN2);
+	
+	// Configure Push button at port D and enable internal pull-up resistor
+	DDRD = DDRD & ~(1<<BUTTON);
+	PORTD = PORTD | (1<<BUTTON);
 
-    // Infinite loop
-    while (1)
-    {
-        // Pause several milliseconds
-       _delay_ms(BLINK_DELAY);
-    PORTB = PORTB ^ (1<<LED_GREEN);
-       
-    PORTC = PORTC ^ (1<<LED_GREEN2);
-       _delay_ms(BLINK_DELAY);
-    PORTB = PORTB ^ (1<<LED_GREEN);
-       
-    PORTC = PORTC ^ (1<<LED_GREEN2); 
-    
-    if(bit_is_clea())
-    {
-    PORTB = PORTB ^ (1<<LED_GREEN);
-   
-    PORTC = PORTC ^ (1<<LED_GREEN2); 
-       
-        
-    }
-    }
-
-    // Will never reach this
-    return 0;
+	// Infinite loop
+	while (1)
+	{
+		// Pause several milliseconds
+		_delay_ms(BLINK_DELAY);
+		
+		PORTB = PORTB ^ (1<<LED_GREEN);		
+		PORTC = PORTC ^ (1<<LED_GREEN2);
+		
+		
+		if(bit_is_clear(PIND, BUTTON))
+		{
+			PORTB = PORTB ^ (1<<LED_GREEN);
+			PORTC = PORTC ^ (1<<LED_GREEN2);
+			
+		}
+	}
+	// Will never reach this
+	return 0;
 }
+
