@@ -1,4 +1,4 @@
-# Lab 2: PETR MEDEK
+# Lab 2: Petr Medek
 
 Link to my GitHub repository:
 
