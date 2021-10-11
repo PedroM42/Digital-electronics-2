@@ -85,7 +85,7 @@ void GPIO_toggle(volatile uint8_t *reg_name, uint8_t pin_num);
  * @param  pin_num  Pin designation in the interval 0 to 7
  * @return Pin value
  */
-void GPIO_read(volatile uint8_t *reg_name, uint8_t pin_num);
+uint8_t GPIO_read(volatile uint8_t *reg_name, uint8_t pin_num);
 
 /** @} */
 

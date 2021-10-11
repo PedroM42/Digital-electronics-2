@@ -46,16 +46,16 @@ int main(void)
     GPIO_config_input_pullup(&DDRD, BUTTON);
 
     // Infinite loop
-    while (1)
+   while (1)
     {
-        
+	   if(GPIO_read(&PIND, BUTTON) == 0){
         _delay_ms(BLINK_DELAY);
         PORTB = PORTB ^ (1<<LED_GREEN);
         PORTC = PORTC ^ (1<<LED_GREEN2);
         
         // Pause several milliseconds
        
-        
+	   }
         
     }
 
