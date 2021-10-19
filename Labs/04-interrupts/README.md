@@ -1,4 +1,4 @@
-# Lab 4: YOUR_FIRSTNAME FAMILYNAME
+# Lab 4: Petr Medek
 
 Link to my GitHub repository:
 
