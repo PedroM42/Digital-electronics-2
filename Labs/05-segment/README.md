@@ -8,8 +8,8 @@ Link to my GitHub repository:
 ### 7-segment library
 
 1. In your words, describe the difference between Common Cathode and Common Anode 7-segment display.
-   * CC SSD
-   * CA SSD
+   * CC SSD - All cathodes of LEDs in segment are concted to common ground. It is in state active high. 
+   * CA SSD - All anodes of LEDs in segment are concted to common power supply. It is in state active low.
 
 2. Code listing with syntax highlighting of two interrupt service routines (`TIMER1_OVF_vect`, `TIMER0_OVF_vect`) from counter application with at least two digits, ie. values from 00 to 59:
 
