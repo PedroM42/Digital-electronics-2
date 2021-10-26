@@ -32,7 +32,7 @@ ISR(TIMER1_OVF_vect)
 	    units = 0;
 	    tens++;
     }
-    units ++;
+    units++;
 }
 ```
 
