@@ -31,7 +31,7 @@ Link to my GitHub repository:
 // Custom character definition
 uint8_t customChar[16] = {
     
-	0b00111,
+0b00111,
     0b01110,
     0b11100,
     0b11000,
