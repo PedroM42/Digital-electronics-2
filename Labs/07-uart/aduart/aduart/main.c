@@ -87,14 +87,59 @@ ISR(TIMER1_OVF_vect)
  **********************************************************************/
 ISR(ADC_vect)
 {
-    uint16_t value = 0;
-    char lcd_string[4] = "0000";
+     uint16_t value = 0;
+     char lcd_string[4] = "0000";
 
-    value = ADC;                  // Copy ADC result to 16-bit variable
-    itoa(value, lcd_string, 10);  // Convert decimal value to string
-    
-    lcd_gotoxy(8, 0);
-    lcd_puts(lcd_string);
+     value = ADC;                  // Copy ADC result to 16-bit variable
+     itoa(value, lcd_string, 10);  // Convert decimal value to string
+
+     
+     lcd_gotoxy(8, 0);
+     lcd_puts("  ");
+     
+     
+     lcd_gotoxy(8, 0);
+     lcd_puts(lcd_string);
+     uart_puts(lcd_string);
+     uart_puts("\n\r");
+     
+     
+     itoa(value, lcd_string, 16);
+     lcd_gotoxy(13,0);
+     lcd_puts(lcd_string);
+     uart_puts(lcd_string);
+     uart_puts("\n\r");
+     
+     
+     lcd_gotoxy(8,1);
+     lcd_puts("  ");
+     
+     
+     lcd_gotoxy(8,1);
+     if (value == 1023)
+     {
+	     lcd_puts("none");
+     }
+     else if (value == 639)
+     {
+	     lcd_puts("select");
+     }
+     else if (value == 409)
+     {
+	     lcd_puts("left");
+     }
+     else if (value == 257)
+     {
+	     lcd_puts("down");
+     }
+     else if (value == 99)
+     {
+	     lcd_puts("up");
+     }
+     else if (value == 0)
+     {
+	     lcd_puts("right");
+     }
     
     
     
